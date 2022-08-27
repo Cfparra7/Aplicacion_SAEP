@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
 use App\Models\Sale_invoice;
+use App\Models\Income_product;
 
 class InventoriesController extends Controller
 {
@@ -18,7 +19,7 @@ class InventoriesController extends Controller
     // GET
     public function create()
     {
-        
+
         $income_products = income_product::all();
         return view('inventories.create', compact('income_products'));
     }
@@ -45,7 +46,7 @@ class InventoriesController extends Controller
         ]);
         return redirect()->route('inventories.index')->with('success', 'inventario actualizado exitosamente');
     }
-    
+
     // GET
     public function edit($id)
     {
